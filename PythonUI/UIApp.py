@@ -2,7 +2,7 @@ import MainUI
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import QObject, QThread, pyqtSignal
 from time import sleep
-import joystick
+import joystick_cross_platform as joystick
 import parsdict
 from functools import partial
 
@@ -275,7 +275,7 @@ class Application(QtWidgets.QMainWindow, MainUI.Ui_MainWindow):
                 return
             if not self.joystick.checkplugged():
                 return
-            self.joystick.getcaps()
+            # self.joystick.getcaps()
             self.joyThread = QThread()
             self.joyWorker = Joystick_monitoring(self.joystick)
             self.joyWorker.moveToThread(self.joyThread)
